@@ -6,20 +6,20 @@ public class TowerOfHanoi {
 	public static void main(String[] args){
 		
 		Scanner input = new Scanner(System.in);
-		System.out.println("Enter number of disks");
+		System.out.println("Skriv inn antall ønskede disker");
 		int n = input.nextInt();
 		
 		System.out.println("The moves are:");
-		moveDisks(n, 'A', 'B', 'C');
+		flyttDisker(n, 'A', 'B', 'C');
 	}
 
-	private static void moveDisks(int n, char fromTower, char toTower, char auxTower) {
+	private static void flyttDisker(int n, char fromTower, char toTower, char auxTower) {
 		if(n==1)
-			System.out.println("Move disk " + n + " from " + fromTower + "to" + toTower);
+			System.out.println("Flytt disk " + n + " fra " + fromTower + " til " + toTower);
 		else{
-			moveDisks(n-1, fromTower, auxTower, toTower);
-			System.out.println("Move disk " + n + " from " + fromTower + "to" + toTower);
-			moveDisks(n-1, fromTower, auxTower, toTower);
+			flyttDisker(n-1, fromTower, auxTower, toTower);
+			System.out.println("Flytt disk " + n + " fra " + fromTower + " til " + toTower);
+			flyttDisker(n-1, fromTower, auxTower, toTower);
 		}
 		
 	}
