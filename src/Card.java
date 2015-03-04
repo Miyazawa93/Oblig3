@@ -5,19 +5,17 @@ public abstract class Card {
 	private boolean cardSuspended;
 	private static int currentCardNumber = 100;
 	
-	//la klassen selv generere unike kortnummer (bruk en static variabel)
-	
 	
 	public Card(String firstName, String lastName, int pinCode){
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.pinCode = pinCode;
 		this.cardNumber = currentCardNumber++;
-		this.setCardSuspenden(false);
-		//cardActive();
+		this.setCardSuspended(false);
 	}
 	
-
+	public Card(){
+	}
 	public String getName(){
 		return this.firstName + " " + this.lastName;
 	}
@@ -42,7 +40,7 @@ public abstract class Card {
 	public void setLastName(String lastName){
 		this.lastName = lastName;
 	}
-	private void setCardSuspenden(boolean cardSuspended) {
+	protected void setCardSuspended(boolean cardSuspended) {
 		this.cardSuspended = cardSuspended;	
 	}
 	public boolean isSuspended(){
@@ -59,8 +57,9 @@ public abstract class Card {
 	public boolean checkPin(int pinCodeNumber){
 		if(pinCodeNumber == this.getPinCode()){
 			return true;
-		}
+		}else{
 		return false;
+		}
 	}
 	
 }
