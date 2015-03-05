@@ -1,4 +1,3 @@
-
 public abstract class Card implements Comparable<Card>, Cloneable {
 	private String firstName;
 	protected String lastName;
@@ -80,13 +79,14 @@ public abstract class Card implements Comparable<Card>, Cloneable {
 			return -1;
 		}else if(this.getLastName().compareTo(card.getLastName()) > 0){
 			return 1;
-		}else if(this.getFirstName().compareTo(card.getFirstName()) <0){
+		}else if(this.getLastName().compareTo(card.getFirstName()) <0){
 			return-1;
-		}else if(this.getFirstName().compareTo(card.getFirstName()) > 0){
+		}else if(this.getLastName().compareTo(card.getFirstName()) > 0){
 			return 1;
-		}else
+		}else{
 			return 0;
 	}
+}
 	
 	@Override
 	public Object clone() {

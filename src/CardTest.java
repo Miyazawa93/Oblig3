@@ -9,7 +9,6 @@ public class CardTest {
 	public static void main(String[] args) {
 		
 		ArrayList<Card> reg = new ArrayList<Card>();
-		Collections.sort(reg);
 		
 		Card c1 = new Employee("Ole Olsen", 1234);
 		Card c2 = new Employee("Arild Hansen", 5555);
@@ -21,9 +20,11 @@ public class CardTest {
 		reg.add(c3);
 		reg.add(c4);
 		
+		
+		//reg.sort(null); Fikk ikke denne til aa fungere 
+		
 		for(int i = 0; i<reg.size(); i++){
 			Card card = (Card)reg.get(i);
-			
 			System.out.println("");
 			System.out.println(card);
 			System.out.println("");

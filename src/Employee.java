@@ -18,6 +18,7 @@ public class Employee extends Card implements Permanent {
 	}
 	
 	public Employee() {	
+		super.setFullName(fullName);
 	}
 	
 	@Override
