@@ -1,4 +1,5 @@
 import java.util.GregorianCalendar;
+import java.util.StringTokenizer;
 
 
 public class Guest extends Card {
@@ -6,21 +7,20 @@ public class Guest extends Card {
 	private GregorianCalendar calendar  = new GregorianCalendar();
 	private GregorianCalendar expireTime  = new GregorianCalendar();
 	
-	public Guest(String firstName, String lastName, int pinCode) {
-		this.setFirstName(firstName);
-		this.setLastName(lastName);
+	public Guest() {
+		this.setFullName("Guest");
+		this.setPinCode(9999);
+		this.setCardSuspended(false);
+		expireTime.add(calendar.DAY_OF_YEAR, 7);
+	}
+	
+	public Guest(String fullName, int pinCode) {
+		super.setFullName(fullName);
 		this.setPinCode(pinCode);
 		this.setCardSuspended(false);
 		expireTime.add(calendar.DAY_OF_YEAR, 7);
 	}
 	
-	public Guest() {
-		this.setFirstName("Guest");
-		this.setPinCode(9999);
-		this.setCardSuspended(false);
-		expireTime.add(calendar.DAY_OF_YEAR, 7);
-	}
-
 	public boolean isAccessGrantes(){
 		if(isSuspended()){
 			return false;
@@ -40,4 +40,13 @@ public class Guest extends Card {
 		}
 		return false;
 	}
+
+	@Override
+	public Object clone() {
+			Guest guestClone = (Guest) super.clone();
+			guestClone.calendar = (GregorianCalendar) this.calendar.clone();
+			
+		return guestClone;
+	}
+	
 }
