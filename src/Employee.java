@@ -6,8 +6,8 @@ public class Employee extends Card implements Permanent {
 	
 	private GregorianCalendar calendar = new GregorianCalendar();
 	private GregorianCalendar time = new GregorianCalendar();
-	private GregorianCalendar workedHours;
-	private double payment;
+	private GregorianCalendar workedYears = new GregorianCalendar();
+	private double payment = 100;
 	private String fullName;
 	String lastName;
 
@@ -18,6 +18,7 @@ public class Employee extends Card implements Permanent {
 	}
 	
 	public Employee() {	
+		super.setFullName(fullName);
 	}
 	
 	@Override
@@ -104,11 +105,10 @@ public class Employee extends Card implements Permanent {
 	}
 	@Override
 	public double calculateBonus() {
-		int yearsEmployed = time.get(GregorianCalendar.YEAR) - calendar.get(GregorianCalendar.YEAR);
+		int startYear = 2000;
+		int yearsEmployed = workedYears.get(GregorianCalendar.YEAR) - 1;
 		
-		return CONSTANT * yearsEmployed;
-		
-		
+		return CONSTANT * yearsEmployed;	
 	}
 
 	@Override
@@ -117,6 +117,12 @@ public class Employee extends Card implements Permanent {
 			employeeClone.calendar = (GregorianCalendar) this.calendar.clone();
 			
 		return employeeClone;
+	}
+	@Override
+	public String toString(){
+		String output = "Name: " + getFullName() + " has card number: " + getCardNumber() +  " and pincode: " + getPinCode() + " Suspended: " + isSuspended() + ": Has bonus " + 
+	calculateBonus() + " and is payed: " + calculateCredit();
+		return output;
 	}
 	
 }
