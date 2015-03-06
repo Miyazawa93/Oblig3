@@ -21,10 +21,12 @@ public class CardTest {
 		reg.add(c4);
 		
 		
-		//reg.sort(null); Fikk ikke denne til aa fungere 
+		Collections.sort(reg);
 		
 		for(int i = 0; i<reg.size(); i++){
+			
 			Card card = (Card)reg.get(i);
+			
 			System.out.println("");
 			System.out.println(card);
 			System.out.println("");
